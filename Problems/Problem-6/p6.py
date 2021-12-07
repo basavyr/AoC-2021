@@ -21,7 +21,7 @@ original_data = [int(x) for x in data]
 data = original_data.copy()
 
 
-print(data)
+# print(data)
 
 
 def Generate_New_Day(data):
@@ -39,6 +39,19 @@ def Evolve_System(number_of_days, data):
     return data
 
 
-Evolve_System(4,data)
+def Read_Test_Input(test_file):
+    proper_lines = []
+    with open(test_file, 'r+') as f:
+        lines = f.readlines()
+    for line in lines:
+        line = [int(x) for x in line.strip().split(',')]
+        proper_lines.append(line)
+    return proper_lines
 
-print(data)
+
+tests = Read_Test_Input('tests.dat')
+print(tests[0])
+
+# Evolve_System(1, data)
+
+# print(data)
