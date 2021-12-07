@@ -6,9 +6,14 @@ import numpy as np
 
 print("Problem 6")
 
+# value of a newly born lantern fish, from a zero (0) valued lantern
 NEW_FISH = 8
+# number of days to perform the evolution of the entire system of lanterns
+NUMBER_OF_DAYS = 18
+# value to be attributed to a lantern that reaches its expiration date -> 0
+RESET_FISH = 6
 
-
+# name of the input file with the initial lantern setup
 INPUT_FILE = "input.dat"
 
 # read the data from the file
@@ -18,10 +23,8 @@ with open(INPUT_FILE, 'r+') as f:
 # convert the raw data to integers
 original_data = [int(x) for x in data]
 
+# shallow copy for the initial data to perform calculations, keeping the original data intact
 data = original_data.copy()
-
-
-# print(data)
 
 
 def Generate_New_Day(data):
@@ -51,6 +54,7 @@ def Read_Test_Input(test_file):
 
 tests = Read_Test_Input('tests.dat')
 print(tests[0])
+
 
 # Evolve_System(1, data)
 
