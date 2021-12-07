@@ -56,6 +56,14 @@ tests = Read_Test_Input('tests.dat')
 print(tests[0])
 
 
-# Evolve_System(1, data)
+def Test_Evolution(tests, NUMBER_OF_DAYS):
+    for day in range(1, NUMBER_OF_DAYS + 1):
+        data = original_data.copy()
+        Evolve_System(day, data)
+        print(data)
+        if(data == tests[day - 1]):
+            print('day', day, '-> all good')
+        data.clear()
 
-# print(data)
+
+Test_Evolution(tests, NUMBER_OF_DAYS)
