@@ -6,6 +6,8 @@ import numpy as np
 
 print("Problem 6")
 
+NEW_FISH = 8
+
 
 INPUT_FILE = "input.dat"
 
@@ -18,7 +20,25 @@ original_data = [int(x) for x in data]
 
 data = original_data.copy()
 
-data[0] = 1
 
 print(data)
-print(original_data)
+
+
+def Generate_New_Day(data):
+    for id in range(len(data)):
+        if data[id] == 0:
+            data.append(NEW_FISH)
+            data[id] = 6
+        else:
+            data[id] = data[id] - 1
+
+
+def Evolve_System(number_of_days, data):
+    for day in range(number_of_days):
+        Generate_New_Day(data)
+    return data
+
+
+Evolve_System(4,data)
+
+print(data)
