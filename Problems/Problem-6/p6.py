@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import numpy as np
+
 # Problem: [https://adventofcode.com/2021/day/6]
 
 print("Problem 6")
@@ -12,6 +14,11 @@ with open(INPUT_FILE, 'r+') as f:
     data = f.readline().split(',')
 
 # convert the raw data to integers
-data = [int(x) for x in data]
+original_data = [int(x) for x in data]
+
+data = original_data.copy()
+
+data[0] = 1
 
 print(data)
+print(original_data)
